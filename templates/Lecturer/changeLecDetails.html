@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Update Lecturer
+{% endblock %}
+
+{% block content %}
+    <h3> Update Lecturer</h3>
+    <p> Update button to update the lecturer and cancel button if you want to discard changes</p>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Update Lecturer</button>
+     <a href="{% url "list_lecturer"%}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

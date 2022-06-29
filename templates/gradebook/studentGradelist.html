@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}
+    Students gradelist
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;background-color: blue; border-radius: 20px; color: white">Current Student grade</h2>
+    <h3 class="display-4">
+        {% for value, text in form.student.field.choices %}
+            {% if value == form.student.value %}
+                {{ text }}
+            {% endif %}
+        {% endfor %}
+    </h3>
+    <form method="post" action="{% url "grade_student" %}">
+        {% csrf_token %}
+         <div >
+            <input type="number" class="form-control" name="id" value="{{ studentEnrolment.id }}" readonly hidden>
+        </div>
+        <div class="mb-3">
+            <label for="grade" class="form-label" >Grades</label>
+            <input type="number" min="0" max="100" class="form-control" name="grade" value="{{ studentEnrolment.grade }}">
+        </div>
+        <table>
+            <tr>
+                <td><button class="btn btn-success" type="submit" style="background-color: cornflowerblue; color: aliceblue">Grade</button></td>
+                <td><a href="{% url "student_list_gradebook" studentEnrolment.class_id.id %}" class="btn btn-primary" style="background-color: aliceblue;color: cornflowerblue">Back</a></td>
+            </tr>
+        </table>
+
+
+    </form>
+{% endblock %}

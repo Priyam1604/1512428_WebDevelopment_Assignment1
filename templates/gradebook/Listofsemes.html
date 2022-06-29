@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+    List of the semesters
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;background-color: blue; border-radius: 20px; color: white">List of the semesters</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+
+            <th scope="col">Semester (Sem1/Sem2)</th>
+             <th scope="col">Year</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for semester in object_list %}
+            <tr class="clickable" onclick="window.location='{% url 'classes_gradebook'  semester.id %}'" style="cursor: pointer">
+
+                <td>{{ semester.semester }}</td>
+                <td>{{ semester.year }}</td>
+            <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home' %}" class="btn " style="background-color: green;color: aliceblue">Back</a>
+
+
+{% endblock %}

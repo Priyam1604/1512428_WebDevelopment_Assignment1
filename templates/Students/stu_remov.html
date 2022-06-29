@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Deleting an existing student
+{% endblock %}
+
+{% block content %}
+    <h3> Deleting an existing student</h3>
+    <h3>deleting student can't be undo. you sure you want to delete the student you selected?</h3>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Delete Student</button>
+     <a href="{% url "list_students"   %}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

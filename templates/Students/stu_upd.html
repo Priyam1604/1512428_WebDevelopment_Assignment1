@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Updating an existing student
+{% endblock %}
+
+{% block content %}
+    <h3>Updating an existing student</h3>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Update Student</button>
+     <a href="{% url "list_students"%}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

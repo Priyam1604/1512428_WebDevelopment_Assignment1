@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+    Create Student
+{% endblock %}
+
+{% block content %}
+    <h3 style="margin-bottom: 30px; text-align: center">{{ message }}</h3>
+    <a class="btn btn-primary" href="{% url 'list_students' %}" style="background-color: green">Back To Students</a>
+{% endblock %}

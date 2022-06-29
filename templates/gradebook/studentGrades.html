@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+    Student Grades
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;background-color: blue; border-radius: 20px; color: white">Students grades</h2>
+    <p>{{ message }}</p>
+{#    <h3 class="display-4" style="margin-bottom: 30px">{{ message }}</h3>#}
+    <a class="btn btn-primary" href="{% url 'student_list_gradebook' studentEnrolment.class_id.id %}" style="background-color: green">Back</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Deleting the semester
+{% endblock %}
+
+{% block content %}
+    <h3> Delete Semester</h3>
+    <h3>Semester can't be undo once deleted. you sure you want to delete the semester you selected?</h3>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Delete semester</button>
+     <a href="{% url "list_course"   %}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

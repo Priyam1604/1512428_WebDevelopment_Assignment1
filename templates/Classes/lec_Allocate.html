@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Allocating Lecturer
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;background-color: blue; border-radius: 20px; color: white">Allocating the lecturer</h2>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Update</button>
+     <a href="{% url "list_classes"%}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;" >Cancel</a>
+    </form>
+{% endblock %}%}

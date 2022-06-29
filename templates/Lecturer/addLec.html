@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+    Creating the lecturer
+{% endblock %}
+
+{% block content %}
+    <h3 >{{ message }}</h3>
+    <a class="btn " href="{% url 'list_lecturer' %}" style="background-color: green">Go Back To Lecturer</a>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}
+List Lecturer
+{% endblock %}
+
+{% block content %}
+<h1 align="center">Lecturers</h1>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Staff ID</th>
+        <th scope="col">Last Name</th>
+      <th scope="col">First Name</th>
+
+        <th scope="col">Email</th>
+      <th scope="col">DOB</th>
+      <th scope="col"><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a href="{% url "create_lecturer_form"  %}" class="btn btn-primary me-md-2" type="button">Create Lecturer</a>
+      </div></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{% for Lecturer in object_list%}
+          <ul>{{ Lecturer.staffID }}</ul>
+        {% endfor %}</th>
+
+      <td>{% for Lecturer in object_list%}
+            <ul>{{ Lecturer.last_Name }}
+            </ul>
+        {% endfor %}
+    </td>
+      <td>{% for Lecturer in object_list%}
+            <ul>{{ Lecturer.first_Name }}</ul>
+        {% endfor %}</td>
+
+     <td>{% for Lecturer in object_list%}
+            <ul>{{ Lecturer.email }}</ul>
+        {% endfor %}</td>
+      <td>{% for Lecturer in object_list%}
+            <ul>{{ Lecturer.dateOfBirth }}
+            </ul>
+        {% endfor %}
+    </td>
+    <td> {% for Lecturer in object_list%}
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+ <a href="{% url "update_lecturer"  Lecturer.id %}"class="btn btn-success me-md-2" type="button" style="background-color: cornflowerblue; color: aliceblue;">Update</a>
+  <a href="{% url "delete_lecturer"  Lecturer.id %}"class="btn btn-danger" type="button" style="background-color: aliceblue;color: cornflowerblue;">Delete</a>
+</div>
+        {% endfor %} </td>
+
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

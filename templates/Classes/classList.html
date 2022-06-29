@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}
+    Classes List
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Class</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Class Number</th>
+            <th scope="col">Lecturer</th>
+            <th scope="col">Semester</th>
+            <th scope="col">Course</th>
+
+            <th scope="col">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="{% url "create_classes" %}" class="btn btn-primary me-md-2" type="button">Create Class</a>
+                </div>
+            </th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{% for Class in object_list %}
+                <ul>{{ Class.number }}</ul>
+            {% endfor %}</th>
+            <td>{% for Class in object_list %}
+                <ul>{{ Class.lecturer }}
+                </ul>
+            {% endfor %}
+            </td>
+            <td>{% for Class in object_list %}
+                <ul>{{ Class.semester}}</ul>
+            {% endfor %}</td>
+            <td>{% for Class in object_list %}
+                <ul>{{ Class.course}}</ul>
+            {% endfor %}</td>
+
+
+            <td> {% for Class in object_list %}
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                {% if Class.lecturer %}
+                    <a href="{% url "assign_lecturer" Class.id %}" class="btn btn-primary me-md-2" style="background-color: cornflowerblue; color: aliceblue;">Change</a>
+                {% else %}
+                     <a href="{% url "assign_lecturer" Class.id %}" class="btn btn-primary me-md-2">Allocate the lecturer</a>
+        {% endif %}
+
+                    <a href="{% url "update_classes"  Class.id %}" class="btn btn-success me-md-2"
+                       type="button" style="background-color: cornflowerblue; color: aliceblue;">Update</a>
+                    <a href="{% url "delete_classes"  Class.id %}" class="btn btn-danger" type="button" style="background-color: aliceblue;color: cornflowerblue;">Delete</a>
+                </div>s
+            {% endfor %} </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

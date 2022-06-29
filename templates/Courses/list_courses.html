@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}
+Listing the courses
+{% endblock %}
+
+{% block content %}
+<h3>Listing the courses</h3>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+        <th scope="col">Course Code</th>
+        <th scope="col">Course Name</th>
+        <th scope="col"><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a href="{% url "create_course"  %}" class="btn " type="button" style="background-color: cornflowerblue; color: aliceblue;">Create Course</a>
+      </div></th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{% for Course in object_list%}
+           <ul>{{ Course.code }}</ul>
+        {% endfor %}</th>
+      <td>{% for Course in object_list%}
+            <ul>{{ Course.name }}
+            </ul>
+        {% endfor %}
+    </td>
+    <td> {% for Course in object_list%}
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+ <a href="{% url "update_course"  Course.id %}"class="btn" type="button" style="background-color: cornflowerblue; color: aliceblue;">Update</a>
+  <a href="{% url "delete_course"  Course.id %}"class="btn btn-danger" type="button" style="background-color: aliceblue;color: cornflowerblue;">Delete</a>
+</div>
+        {% endfor %} </td>
+
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Deleting the existing class
+{% endblock %}
+
+{% block content %}
+    <h3> Deleting Class</h3>
+    <h5>Deleted the class cannot be undo. you sure you want to delete the class?</h5>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success">Delete</button>
+     <a href="{% url "list_classes"   %}" type="button" style="background-color: green">Cancel</a>
+    </form>
+{% endblock %}%}

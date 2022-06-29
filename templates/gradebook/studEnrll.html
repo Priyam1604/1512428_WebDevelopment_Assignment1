@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}
+    List of the students enrolled
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;background-color: blue; border-radius: 20px; color: white">Students In the Class</h2>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Student Name:</th>
+      <th scope="col">Grade</th>
+      <th scope="col">Class ID</th>
+      <th scope="col">Grade Time</th>
+      <th scope="col">Enroll Time</th>
+
+
+      <th>
+
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for enrolment in studentEnrolment %}
+    <tr>
+      <td>{{ enrolment.student_id }}</td>
+      <td>{{ enrolment.grade }}</td>
+      <td>{{ enrolment.class_id }}</td>
+      <td>{{ enrolment.gradeTime }}</td>
+      <td>{{ enrolment.enrollTime }}</td>
+      <tr>
+      <td>
+          <a href="{% url "grade_student_form" enrolment.id %}" class="btn btn-success" style="background-color: cornflowerblue; color: aliceblue;">Grades</a>
+          <a href="{% url 'classes_gradebook' semester_id %}" class="btn btn-primary" style="background-color: aliceblue;color: cornflowerblue;"> Go Back</a>
+      </td>
+      </tr>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

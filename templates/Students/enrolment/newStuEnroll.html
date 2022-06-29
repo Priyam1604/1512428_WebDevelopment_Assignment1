@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+    Enrolling the Student
+{% endblock %}
+
+{% block content %}
+    <h3 style="margin-bottom: 20px; text-align: center">Enrolling the student</h3>
+    <p>Click on Enrol Student button to enroll the student or click Back if you want to discard the changes</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="class" class="form-label">Class</label>
+            {{ form.class_id }}
+        </div>
+        <div class="mb-3">
+            <label for="student" class="form-label">Student</label>
+            {{ form.student_id}}
+        </div>
+
+        <button class="btn btn-primary" type="submit" style="background-color: cornflowerblue; color: aliceblue;">Enrol</button>
+        <a class="btn btn-danger" href="{% url 'list_student' %}" style="background-color: aliceblue;color: cornflowerblue;">Back</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+Delete Lecturer
+{% endblock %}
+
+{% block content %}
+    <p> Delete button to delete the lecturer and cancel button if you want to discard changes</p>
+    <h5>Lecturer can't be undo once deleted.you sure you want to delete this Course?</h5>
+    <h3> Delete Lecturer</h3>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Delete</button>
+     <a href="{% url "list_lecturer"   %}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

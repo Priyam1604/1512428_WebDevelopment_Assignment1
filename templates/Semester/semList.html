@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+Listing the semesters
+{% endblock %}
+
+{% block content %}
+<h3 align="center">Listing the semester</h3>
+
+    <h4> Each year has two semesters</h4>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+        <th scope="col">Year</th>
+      <th scope="col">Semester</th>
+      <th scope="col"><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a href="{% url "create_semester"  %}" class="btn btn-primary me-md-2" type="button">create sem</a>
+      </div></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{% for Semester in object_list%}
+          <ul>{{ Semester.year }}</ul>
+        {% endfor %}</th>
+      <td>{% for Semester in object_list%}
+            <ul>{{ Semester.semester  }}</ul>
+        {% endfor %}</td>
+    <td> {% for Semester in object_list%}
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+ <a href="{% url "update_semester"  Semester.id %}"class="btn " type="button" style="background-color: cornflowerblue; color: aliceblue;">Update</a>
+  <a href="{% url "delete_semester"  Semester.id %}"class="btn btn-danger" type="button" style="background-color: aliceblue;color: cornflowerblue;">Delete</a>
+</div>
+    {% endfor %} </td>
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+Creating a new Semester
+{% endblock %}
+
+{% block content %}
+    <h3> Creating a new semester</h3>
+    <p>Two semester per year</p>
+
+    <p> Create button to create the semester and cancel button if you want to discard changes</p>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Create Semester</button>
+     <a href="{% url "list_semester"   %}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

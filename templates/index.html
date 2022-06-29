@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+GradeBook
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h2  style="text-align: center;background-color: blue; border-radius: 20px; color: white">Gradebook</h2>
+    {% else %}
+        <h3 class="display-1" style="text-align: center; background-color: dodgerblue; border-radius: 15px; color: aliceblue; font-family: 'Agency FB'">Login using your username and password </h3>
+        <p style="text-align: center; margin-top: 50px; font-size: 25px"> Click on the login button on the top to proceed </p>
+        <img src="500.jpg" alt="">
+    {% endif %}
+{% endblock %}

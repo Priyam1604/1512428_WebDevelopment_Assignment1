@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Updating the semester
+{% endblock %}
+
+{% block content %}
+    <h1> Updating the semester</h1>
+
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Update</button>
+     <a href="{% url "list_semester"%}"class="btn btn-danger" type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

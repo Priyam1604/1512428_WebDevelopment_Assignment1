@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Creating the course
+{% endblock %}
+
+{% block content %}
+    <h3> Creating the course</h3>
+    <p> Create button to create the course and cancel button if you want to discard changes</p>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-success" style="background-color: cornflowerblue; color: aliceblue;">Create course</button>
+     <a href="{% url "list_course"   %}"class="btn " type="button" style="background-color: aliceblue;color: cornflowerblue;">Cancel</a>
+    </form>
+{% endblock %}%}

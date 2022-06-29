@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+List Students
+{% endblock %}
+
+{% block content %}
+<h1 align="center">Students</h1>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">student id:</th>
+      <th scope="col">Last Name:</th>
+
+      <th scope="col">First Name:</th>
+
+        <th scope="col">email</th>
+      <th scope="col">BIRTH DATE:</th>
+      <th scope="col"><div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a href="{% url "create_student_form"  %}" class="btn btn-primary me-md-2" type="button">Create Student</a>
+          <a href="{% url "list_student"  %}" class="btn btn-success me-md-2" type="button">Enrollment</a>
+          <a href="{% url "upload_file" %}" class="btn btn-success me-md-2" type="button">Upload File</a>
+      </div></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{% for Student in object_list%}
+          <ul>{{ Student.studentID }}</ul>
+        {% endfor %}</th>
+
+      <td>{% for Student in object_list%}
+            <ul>{{ Student.last_Name }}
+            </ul>
+        {% endfor %}
+    </td>
+      <td>{% for Student in object_list%}
+            <ul>{{ Student.first_Name }}</ul>
+        {% endfor %}</td>
+
+     <td>{% for Student in object_list%}
+            <ul>{{ Student.email }}</ul>
+        {% endfor %}</td>
+      <td>{% for Student in object_list%}
+            <ul>{{ Student.dateOfBirth }}
+            </ul>
+        {% endfor %}
+    </td>
+    <td> {% for Student in object_list%}
+           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+ <a href="{% url "update_students"  Student.id %}"class="btn btn-success me-md-2" type="button" style="background-color: cornflowerblue; color: aliceblue;">Update</a>
+  <a href="{% url "delete_students"  Student.id %}"class="btn btn-danger" type="button" style="background-color: aliceblue;color: cornflowerblue;">Delete</a>
+</div>
+        {% endfor %} </td>
+
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}

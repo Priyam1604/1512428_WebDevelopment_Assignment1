@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    Remove the student enrolled
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+    <h3 class="display-2" style="margin-bottom: 22px; text-align: center">Remove the student enrolled</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>Enrolled student cannot be undone after deleted.you Sure you want to Delete the current student?</p>
+        <button class="btn btn-danger" type="submit" style="background-color: cornflowerblue; color: aliceblue;">Yes</button>
+        <a class="btn btn-success" href="{% url 'list_student' %}" style="background-color: aliceblue;color: cornflowerblue;">No</a>
+    </form>
+{% endblock %}
